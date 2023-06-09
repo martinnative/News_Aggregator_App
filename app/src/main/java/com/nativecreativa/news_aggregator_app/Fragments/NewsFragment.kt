@@ -1,6 +1,6 @@
-package com.nativecreativa.news_aggregator_app
+package com.nativecreativa.news_aggregator_app.Fragments
 
-import NewsAdapter
+import com.nativecreativa.news_aggregator_app.Adapters.NewsAdapter
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.nativecreativa.news_aggregator_app.Activities.ArticleActivity
+import com.nativecreativa.news_aggregator_app.Models.NewsArticle
+import com.nativecreativa.news_aggregator_app.ViewModels.NewsViewModel
+import com.nativecreativa.news_aggregator_app.R
 
 class NewsFragment : Fragment() {
     private lateinit var newsViewModel: NewsViewModel
@@ -22,9 +26,10 @@ class NewsFragment : Fragment() {
 
         val adapter = NewsAdapter(object : NewsAdapter.OnItemClickListener {
             override fun onItemClick(article: NewsArticle) {
-               // val intent = Intent(context, ArticleActivity::class.java)
-               // intent.putExtra("article", article)
-               // context?.startActivity(intent)
+
+                val intent = Intent(context, ArticleActivity::class.java)
+                intent.putExtra("article", article)
+                context?.startActivity(intent)
             }
         })
 

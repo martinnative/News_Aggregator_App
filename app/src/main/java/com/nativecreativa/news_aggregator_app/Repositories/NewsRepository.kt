@@ -1,5 +1,6 @@
-package com.nativecreativa.news_aggregator_app
+package com.nativecreativa.news_aggregator_app.Repositories
 
+import com.nativecreativa.news_aggregator_app.Models.NewsArticle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
@@ -36,8 +37,10 @@ class NewsRepository {
             val urlToImage = articleJson.optString("urlToImage", null)
             val url = articleJson.getString("url")
             val publishedAt = articleJson.getString("publishedAt")
+            var content = articleJson.getString("content")
+            for(i in 1..10){content +=articleJson.getString("content")}
 
-            val article = NewsArticle(title, author, description, urlToImage, url, publishedAt)
+            val article = NewsArticle(title, author, description, urlToImage, url, publishedAt,content)
             articles.add(article)
         }
 
