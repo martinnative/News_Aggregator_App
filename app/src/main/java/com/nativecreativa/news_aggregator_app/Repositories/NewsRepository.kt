@@ -11,12 +11,18 @@ import java.io.IOException
 class NewsRepository {
     private val apiKey = "41337a1eee9b4a56bbec84278fd35c5b"
     private val baseUrl = "https://newsapi.org/v2/top-headlines?country=us"
+    private val baseUrl1 = "https://newsapi.org/v2/everything?q="
 
-    suspend fun getNews(): List<NewsArticle> {
+    suspend fun getNews(keyword: String = ""): List<NewsArticle> {
         val client = OkHttpClient()
-        val request = Request.Builder()
+        val requestBuilder = Request.Builder()
             .url("$baseUrl&apiKey=$apiKey")
-            .build()
+
+        if (keyword.isNotEmpty()) {
+            requestBuilder.url("$baseUrl1$keyword&apiKey=$apiKey")
+        }
+
+        val request = requestBuilder.build()
 
         val response = withContext(Dispatchers.IO) { client.newCall(request).execute() }
 
@@ -38,8 +44,7 @@ class NewsRepository {
             val url = articleJson.getString("url")
             val publishedAt = articleJson.getString("publishedAt")
             var content = articleJson.getString("content")
-            for(i in 1..10){content +=articleJson.getString("content")}
-
+           // for(i in 1..10){content +=articleJson.getString("content")}
             val article = NewsArticle(title, author, description, urlToImage, url, publishedAt,content)
             articles.add(article)
         }

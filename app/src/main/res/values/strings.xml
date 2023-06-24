@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">News Aggregator App (andorid)</string>
+    <string name="related_articles">Related Articles</string>
 </resources>

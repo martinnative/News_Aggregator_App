@@ -3,36 +3,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
-
-
-    <TextView
-        android:id="@+id/articleTitleTextView"
-        android:layout_width="match_parent"
-        android:layout_height="133dp"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/articleAuthorTextView"
-        android:layout_width="match_parent"
-        android:layout_height="84dp"
-        android:textAppearance="?android:textAppearanceSmall"
-        android:textStyle="italic" />
+    android:padding="16dp"
+    android:background="#F2F2F2">
 
     <ImageView
         android:id="@+id/articleImageView"
         android:layout_width="match_parent"
-        android:layout_height="393dp"
+        android:layout_height="200dp"
         android:contentDescription="TODO"
-        android:scaleType="centerCrop" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/placeholder_image" />
+
+    <TextView
+        android:id="@+id/articleTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textStyle="bold"
+        android:textColor="#333333" />
+
+    <TextView
+        android:id="@+id/articleAuthorTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textStyle="italic"
+        android:textColor="#666666" />
 
     <TextView
         android:id="@+id/articleContentTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="18dp"
-        android:textSize="20dp"
-        />
+        android:textSize="16sp"
+        android:textColor="#333333" />
+    <TextView
+        android:id="@+id/relatedArticles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textStyle="bold"
+        android:paddingTop="20dp"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:text="@string/related_articles"
+        android:textColor="#333333" />
+
+    <androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/articleRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp" />
+
 
 </LinearLayout>
