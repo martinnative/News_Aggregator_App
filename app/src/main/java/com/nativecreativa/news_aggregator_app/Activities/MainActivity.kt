@@ -29,19 +29,6 @@ class MainActivity : AppCompatActivity() {
         //val toolbar = findViewById<Toolbar>(R.id.toolbar)
         //setSupportActionBar(toolbar)
 
-        //newsViewModel = ViewModelProvider(this)[NewsViewModel::class.java]
-        //searchEditText = findViewById(R.id.searchBar)
-        //searchButton = findViewById(R.id.searchButton)
-        //searchButton.setOnClickListener{
-          //  newsViewModel.setKeyword(searchEditText.text.toString())
-        //}
-        //newsViewModel.getKeyword().observe(this){keyword ->
-          //  newsViewModel.searchNews(keyword)
-            //supportFragmentManager.beginTransaction()
-              //  .replace(R.id.fragmentContainer, NewsFragment())
-                //.commit()
-       // }
-
 
 
 
